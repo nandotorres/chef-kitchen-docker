@@ -1,0 +1,23 @@
+image: docker:dind
+   
+stages:
+  - build
+  - test
+  - deploy
+
+build docker image:
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/fcagil/chef-docker-runner-image:$CI_BUILD_REF_NAME .
+
+test image:
+  stage: test
+  script: 
+    - ./test.sh
+
+deploy to registry:
+  stage: deploy
+  script:
+    - docker push registry.gitlab.com/fcagil/chef-docker-runner-image:$CI_BUILD_REF_NAME
+
