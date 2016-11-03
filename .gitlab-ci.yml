@@ -13,6 +13,6 @@ build docker image:
   stage: build
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-    - docker build -t registry.gitlab.com/fcagil/chef-docker-runner-image:$CI_BUILD_REF_NAME .
-    - ls -las
-    - docker push registry.gitlab.com/fcagil/chef-docker-runner-image:$CI_BUILD_REF_NAME
+    - docker build -t registry.gitlab.com/fcagil/com.fcagroup.wisdom.chef-docker-runner-image:$CI_BUILD_REF_NAME .
+    - ./test.sh
+    - docker push registry.gitlab.com/fcagil/com.fcagroup.wisdom.chef-docker-runner-image:$CI_BUILD_REF_NAME

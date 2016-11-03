@@ -6,4 +6,4 @@ if [[ -z "$tag" ]]; then
   tag="latest"
 fi
 
-docker build . -t fcagil/chef-docker-runner-image:$tag
+docker build . -t fcagil/com.fcagroup.wisdom.chef-docker-runner-image:$tag
