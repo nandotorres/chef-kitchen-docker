@@ -11,5 +11,4 @@ build docker image:
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/fcagil/com.fcagroup.wisdom.chef-docker-runner-image:$CI_BUILD_REF_NAME .
-    - docker run registry.gitlab.com/fcagil/com.fcagroup.wisdom.chef-docker-runner-image:$CI_BUILD_REF_NAME /bin/bash -c "/opt/chefdk/bin/chef -v"
     - docker push registry.gitlab.com/fcagil/com.fcagroup.wisdom.chef-docker-runner-image:$CI_BUILD_REF_NAME
